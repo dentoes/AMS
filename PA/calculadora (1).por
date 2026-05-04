@@ -49,24 +49,13 @@ se (operacao == '/') {
     se (operacao == '/') {
       se (N_2 == 0)
         escreva ("Não é possível efetuar o cálculo de divisão por 0. \n" )
-    }
-
-    se(N_2 > 0)
+    } senao {
+      (N_2 > 0)
 
     resultado= N_1/N_2
     escreva("Resultado da divisão foi: ", resultado)
 
-//     se (N_1 - N_2) {
-//     escreva (calculo_final = N_1 - N_2)
-//     }
+    }
 
-// se (N_1 * N_2) {
-//     escreva (final = N_1 * N_2)
-//     }
-
-// se (N_1 / N_2) {
-//     escreva (finalizacao = N_1 / N_2)
-//     }
   }
 }
-
