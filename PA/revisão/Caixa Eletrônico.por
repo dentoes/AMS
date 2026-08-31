@@ -2,43 +2,58 @@ programa
 {
 	funcao inicio()
 	{
-	inteiro valorSaque
-	inteiro notas100, notas50, notas20, notas10
-	inteiro resto
+		inteiro valor_saque
+		inteiro notas100 = 0, notas50 = 0, notas20 = 0, notas10 = 0
+		inteiro valor_restante
 
-	escreva("Digite o valor que deseja sacar: R$ ")
-	leia(valorSaque)
+		escreva("Digite o valor que deseja sacar: R$ ")
+		leia(valor_saque)
 
-	se (valorSaque <= 0)
+		se (valor_saque <= 0)
+		{
+			escreva("O valor do saque deve ser maior que zero.\n")
+		}
+		senao
+		{
+	se (valor_saque > 1000)
+	{
+	escreva("O valor de saque máximo permitido é R$ 1.000,00.\n")
+	}
+senao
+	{	
+	valor_restante = valor_saque
+	se (valor_restante >= 500) 
+  { notas100 = 5  valor_restante = valor_restante - 500 }
+	se (valor_restante >= 400) 
+  { notas100 = notas100 + 4  valor_restante = valor_restante - 400 }
+	se (valor_restante >= 200) 
+  { notas100 = notas100 + 2  valor_restante = valor_restante - 200 }
+	se (valor_restante >= 100) 
+  { notas100 = notas100 + 1  valor_restante = valor_restante - 100 }
+				
+	se (valor_restante >= 50)  { notas50 = 1  valor_restante = valor_restante - 50 }
+				
+	se (valor_restante >= 40)  { notas20 = 2  valor_restante = valor_restante - 40 }
+		senao
+	{
+	se (valor_restante >= 20) { notas20 = 1  valor_restante = valor_restante - 20 }
+	}
+				
+ se (valor_restante >= 10)  { notas10 = 1  valor_restante = valor_restante - 10 }
+
+	se (valor_restante != 0)
 {
-	escreva("O valor do saque deve ser maior que zero.\n")
-	}
-	senao se (valorSaque % 10 != 0)
-	{
-	escreva("O valor deve ser múltiplo de 10, tente novamente.\n")
-	}
-	senao se (valorSaque > 1000)
-	{
-	escreva("O saque máximo permitido é R$ 1.000,00.\n")
+	escreva("O valor deve ser múltiplo de 10.\n")
 	}
 	senao
 	{
-		notas100 = valorSaque / 100
-		resto = valorSaque % 100
-
-		notas50 = resto / 50
-		resto = resto % 50
-
-		notas20 = resto / 20
-    resto = resto % 20
-
-	 notas10 = resto / 10
-
-	escreva("\nSaque realizado com sucesso\n")
+	escreva("\nSaque realizado com sucesso!\n")
 	escreva("Notas de R$ 100: ", notas100, "\n")
 	escreva("Notas de R$ 50: ", notas50, "\n")
 	escreva("Notas de R$ 20: ", notas20, "\n")
 	escreva("Notas de R$ 10: ", notas10, "\n")
-	}
+		}
+	  }
+  	}
 	}
 }
