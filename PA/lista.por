@@ -4,10 +4,12 @@ programa {
     inteiro qtd = 0
     inteiro n
 
-    enquanto(qtd < 10) {
+    enquanto(qtd < 0) {
      escreva("Digite um número (0 para parar): ")
      leia(n)
      se (n == 0) {
+      pare
+     }
       lista[qtd] = n
       qtd++
      }
@@ -18,4 +20,3 @@ programa {
      escreva("\n qtd = ", qtd, "\n")
     }
   }
-}
