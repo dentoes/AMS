@@ -1,27 +1,16 @@
 <?php
-session_start();
-
 $servidor = "localhost";
-$banco = "escola";
+$banco = "exercito";
 $usuario = "root";
 $senha = "";
 
 try {
     $pdo = new PDO(
-        "mysql:host=$servidor;dbname=$banco;charset=utf8mb4",
+        "mysql:host=$servidor;dbname=$banco;charset=utf8",
         $usuario,
-        $senha,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        ]
+        $senha
     );
-
-    if (empty($_SESSION["token"])) {
-        $_SESSION["token"] = bin2hex(random_bytes(32));
-    }
 } catch (PDOException $e) {
-    // Não exibe detalhes técnicos da conexão para o visitante.
-    die("Não foi possível conectar ao banco de dados. Confira o XAMPP e o arquivo conexao.php.");
+    die("Erro ao conectar com o banco de dados.");
 }
 ?>
